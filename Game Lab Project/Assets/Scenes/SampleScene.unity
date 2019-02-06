@@ -1254,6 +1254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 714528265}
   currentCheckpoint: {x: 0, y: 0, z: 0}
+  save:
+    posx: 0
+    posy: 0
+    posz: 0
 --- !u!50 &714528265 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5000000, guid: 87a2357765801c34292d6718d8b4d770,
@@ -1357,7 +1361,6 @@ GameObject:
   m_Component:
   - component: {fileID: 834050509}
   - component: {fileID: 834050508}
-  - component: {fileID: 834050510}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -1393,18 +1396,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &834050510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834050507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9dc7733278c4dd7b2c2d74b002b983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &929292397
 PrefabInstance:
   m_ObjectHideFlags: 0
