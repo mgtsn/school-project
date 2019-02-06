@@ -9,9 +9,15 @@ public class SaveGame : MonoBehaviour
 {
     public static CheckpointManager c;
 
-
-
     public Save save;
+
+    private string[] files = new string[] { "/savefile1.save", "/savefile2.save", "/savefile3.save" };
+
+    private string file1 = "/savefile1.save";
+    private string file2 = "/savefile2.save";
+    private string file3 = "/savefile3.save";
+
+    private int currentFile = Variables.file - 1;
 
     public void Save()
     {
@@ -20,25 +26,27 @@ public class SaveGame : MonoBehaviour
         save.posx = c.currentCheckpoint.x;
         save.posy = c.currentCheckpoint.y;
         save.posz = c.currentCheckpoint.z;
-        
 
-
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/savefile1.save");
-        bf.Serialize(file, save);
-        file.Close();
-
+        if (currentFile >= 0 && currentFile <= 2)
+        { 
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + file1);
+            bf.Serialize(file, save);
+            file.Close();
+        }
     }
 
-    public static void Load()
+    public void Load()
     {
         if (File.Exists(Application.persistentDataPath + "/savefile1.save"))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/savefile1.save", FileMode.Open);
-            Save s = (Save)bf.Deserialize(file);
-            file.Close();
-
+            if (currentFile >= 0 && currentFile <= 2)
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/savefile1.save", FileMode.Open);
+                Save s = (Save)bf.Deserialize(file);
+                file.Close();
+            }
             c.currentCheckpoint = new Vector3(s.posx, s.posy, s.posz);
             c.Respawn();
         }

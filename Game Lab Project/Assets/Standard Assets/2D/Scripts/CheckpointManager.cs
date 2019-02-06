@@ -6,7 +6,6 @@ public class CheckpointManager : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-
     public Vector3 currentCheckpoint;
 
     public Save save;
